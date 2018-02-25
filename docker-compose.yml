@@ -1,0 +1,11 @@
+
+version: '3'
+
+services:
+    main:
+        build: "."
+        container_name: "puppeteer_test"
+        volumes:
+           - ./screenshot/:/usr/src/app/screenshot
+           - .:/app
+

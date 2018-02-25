@@ -1,0 +1,8 @@
+{
+    "name": "puppeteer_test",
+    "version": "0.1.0",
+    "description": "puppeteerの動作テスト",
+    "dependencies": {
+        "puppeteer": "*"
+    }
+}
