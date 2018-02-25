@@ -11,7 +11,7 @@ const puppeteer = require('puppeteer');
     await page.goto('https://google.com'); // 表示したいURL
 
     /*（何か処理）*/
-    await page.screenshot({path: 'screenshot/screenShotPage.png'});
+    await page.screenshot({path: `screenshot/puppeteer_${(new Date()).getTime()}.png`});
 
     browser.close();
 })();

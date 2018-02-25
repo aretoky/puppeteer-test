@@ -42,17 +42,17 @@ RUN apt-get update \
       libnss3 \
       lsb-release \
       xdg-utils \
-      wget
-#RUN npm install -g yarn
+      wget \
+  && npm install -g yarn    
 
 # node関連設定
-WORKDIR /usr/src/app 
+WORKDIR /usr/src/app
 COPY     package.json /usr/src/app/
-RUN npm install
+RUN yarn install
 
 # スクリプト配置用ディレクトリ作成
-RUN mkdir -p /usr/src/app/script
-COPY /app/app.js /usr/src/app/script/
+RUN mkdir -p /usr/src/app
+COPY /app/app.js /usr/src/app/
 
 # フォント追加
 RUN mkdir /noto
@@ -71,5 +71,6 @@ RUN unzip NotoSansCJKjp-hinted.zip && \
 WORKDIR /
 RUN rm -rf /noto
 
-ENTRYPOINT ["nodejs","/app/script/app.js"]
+WORKDIR /usr/src/app
+ENTRYPOINT ["nodejs","/usr/src/app/app.js"]
 
